@@ -5,15 +5,23 @@ Arduino library. Precision tachometer using timer/counter 5
 
 Preliminary
 -----------
+
  1.- The Timer/Counter 5 will be used. (The Timer onwards)
+
  2.- The example was tested on Mega2560 board but it should work on other boards.
 
+
 Strategies
----------------
+----------
+
  1.- The tach signal will be connected to ICP5 pin (PL1 -> GPIO48 -> pin 29 on XIO connector on MEGA2560 board)
+
  2.- The Timer will be programned on counter mode and free run.
+
  3.- The counter input is internal CLKi/o pulses from prescaler.
+
  4.- The class is a SINGLETON because it's no desirable to have more instances of this class.
+
 
 Operations
 ----------
@@ -30,7 +38,6 @@ Operations
   - **Syncronization** : The library is waiting for a tachometer pulse to start the prescaler calibration.
   - **Calibration**    : The library is calibrating the prescaler.
   - **Running**        : The library is measuring the tachometer.
-
 
 
  On start, the class begins on Stopped Mode so, the application can setup tachometer pulse characteristics before
@@ -54,7 +61,6 @@ Operations
  bringing the library from syncronization to calibration mode until find prescaler value.
 
  The application get the library status with functions :
-
    - `bool isStopped();`
    - `bool isOnSyncronization();`
    - `bool isOnCalibration();`
